@@ -52,7 +52,7 @@ function App() {
     <div style={styles.container}>
       <h1 style={styles.title}>My Todo List</h1>
       {/* Menampilkan component TodoForm */}
-      <TodoForm addTodo={addTodo} /> 
+      <TodoForm addTodo={addTodo} />
       <Todos
         todos={todos}
         toggleCompleted={toggleCompleted}

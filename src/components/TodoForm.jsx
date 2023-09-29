@@ -1,19 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 
 const TodoForm = ({ addTodo }) => {
-  
+
+  const [title, setTitle] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    addTodo()
+    addTodo(title)
+    setTitle('')
   }
 
+  const handleChangeTitle = (event) => {
+    setTitle(event.target.value)
+  }
+  
+  // Periksa apakah function "handleChangeTitle" berfungsi
+  console.log(title)
 
   return (
     <div style={styles.container}>
       <form
         // Panggil function addTodo ketika form dikirimkan
-       onSubmit={(event) => {
+        onSubmit={(event) => {
           handleSubmit(event)
         }}
       >
@@ -21,6 +30,10 @@ const TodoForm = ({ addTodo }) => {
           type="text"
           placeholder="Add your Todo"
           style={styles.formInput}
+          onChange={(event) => {
+            handleChangeTitle(event)
+          }}
+          value={title}
         />
         <button style={styles.button}>Add Todo</button>
       </form>
